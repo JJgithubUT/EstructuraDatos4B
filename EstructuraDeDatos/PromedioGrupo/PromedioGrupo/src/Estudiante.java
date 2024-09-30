@@ -2,7 +2,7 @@ public class Estudiante {
     private String matricula;
     private String nombre;
     private double estructuras;
-    private double evaluación;
+    private double evaluacion;
     private double ingles;
     private double promedio_estudiante;
 
@@ -41,12 +41,12 @@ public class Estudiante {
         this.estructuras = estructuras;
     }
 
-    public double getEvaluación() {
-        return evaluación;
+    public double getEvaluacion() {
+        return evaluacion;
     }
 
-    public void setEvaluación(double evaluación) {
-        this.evaluación = evaluación;
+    public void setEvaluacion(double evaluacion) {
+        this.evaluacion = evaluacion;
     }
 
     public double getIngles() {
@@ -61,8 +61,8 @@ public class Estudiante {
         return promedio_estudiante;
     }
 
-    public void setPromedio_estudiante(double promedio_estudiante) {
-        this.promedio_estudiante = promedio_estudiante;
+    public void setPromedio_estudiante() {
+        this.promedio_estudiante = (this.estructuras + this.evaluacion + this. ingles) / 3;
     }
 
     @Override

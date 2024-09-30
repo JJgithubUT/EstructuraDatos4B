@@ -9,13 +9,45 @@ public class App {
         * Las calificaciones se leen y se almacenan en un arreglo de tamaño N
     */
 
+    public static Estudiante[] estudiantes; // arreglo de un Tipo de Dato Abstracto(TDA)
+
+    public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    public static String entrada; // El tamaño del arreglo
+
+    public static void leer_estudiantes() throws IOException {
+        for (int i = 0; i < estudiantes .length; i++) {
+            String matricula, nombre;
+            
+            System.out.println("--------------");
+            System.out.println("Información del estudiante [" + (i+0) + "]");
+            System.out.println("Matricula: ");
+            entrada = br.readLine();
+            matricula = entrada;
+            System.out.println("Nombre: ");
+            entrada = br.readLine();
+            nombre = entrada;
+            Estudiante e = new Estudiante(matricula, nombre);
+            System.out.println("Escribe calificacion de Estructuras: ");
+            entrada = br.readLine();
+            e.setEstructuras(Double.parseDouble(entrada));
+            System.out.println("Escribe calificacion de Evaluacion: ");
+            entrada = br.readLine();
+            e.setEvaluacion(Double.parseDouble(entrada));
+            System.out.println("Escribe calificacion de Inglés: ");
+            entrada = br.readLine();
+            e.setIngles(Double.parseDouble(entrada));
+            e.setPromedio_estudiante();
+            estudiantes[i] = e;   
+        }
+    }
+
     public static void main(String[] args) throws IOException {
 
         int N;
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String entrada; // El tamaño del arreglo
+        
         // Para lectura de datos
-        double[] calificaciones; // arreglo de calificaciones
+        
+        double[] calificaciones; // arreglo de calificaciones // arreglo de un Tipo de Dato Primitivo
         double suma = 0; // para sumar calificaciones
         double promedio; // promedio del grupo
 
@@ -24,14 +56,18 @@ public class App {
         entrada = br.readLine();
         N = Integer.parseInt(entrada);
 
-        calificaciones = new double[N];
+        // Construyendo arreglo de estudiantes
+        estudiantes = new Estudiante[N];
 
-        for ( int i = 0; i < calificaciones.length; i++ ) {
-            System.out.println("Escriba la calificación del alumno " + (i+1) + ": ");
-            entrada = br.readLine();
-            calificaciones[i] = Double.parseDouble(entrada);
-            suma += calificaciones[i];
-        }
+        calificaciones = new double[N];
+        
+        // leer calificaciones
+        // for ( int i = 0; i < calificaciones.length; i++ ) {
+        //     System.out.println("Escriba la calificación del alumno " + (i+1) + ": ");
+        //     entrada = br.readLine();
+        //     calificaciones[i] = Double.parseDouble(entrada);
+        //     suma += calificaciones[i];
+        // }
 
         promedio = suma / N;
 
