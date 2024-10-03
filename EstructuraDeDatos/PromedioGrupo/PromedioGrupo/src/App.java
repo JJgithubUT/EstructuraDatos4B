@@ -19,7 +19,7 @@ public class App {
             String matricula, nombre;
             
             System.out.println("--------------");
-            System.out.println("Información del estudiante [" + (i+0) + "]");
+            System.out.println("Información del estudiante " + (i+1) + ": ");
             System.out.println("Matricula: ");
             entrada = br.readLine();
             matricula = entrada;
@@ -55,14 +55,38 @@ public class App {
         return suma / estudiantes.length;
     }
 
+    public static double calcularPromedioEstructuras() {
+        double suma = 0;
+        for (Estudiante e : estudiantes) {
+            suma += e.getEstructuras();
+        }
+        return suma / estudiantes.length;
+    }
+
+    public static double calcularPromedioEvaluacion() {
+        double suma = 0;
+        for (Estudiante e : estudiantes) {
+            suma += e.getEvaluacion();
+        }
+        return suma / estudiantes.length;
+    }
+
+    public static double calcularPromedioIngles() {
+        double suma = 0;
+        for (Estudiante e : estudiantes) {
+            suma += e.getIngles();
+        }
+        return suma / estudiantes.length;
+    }
+
     public static void main(String[] args) throws IOException {
 
         int N;
         
         // Para lectura de datos
         
-        double[] calificaciones; // arreglo de calificaciones // arreglo de un Tipo de Dato Primitivo
-        double suma = 0; // para sumar calificaciones
+        //double[] calificaciones; // arreglo de calificaciones // arreglo de un Tipo de Dato Primitivo
+        //double suma = 0; // para sumar calificaciones
         double promedio; // promedio del grupo
 
         System.out.println("Programa que calcula el promedio de un grupo");
@@ -106,6 +130,10 @@ public class App {
         */
 
         System.out.println("\nEl promedio del grupo es: " + promedio + "\n");
+
+        System.out.println("Promedio del grupo de estructuras: " + calcularPromedioEstructuras());
+        System.out.println("Promedio del grupo de evaluacion: " + calcularPromedioEvaluacion());
+        System.out.println("Promedio del grupo de ingles: " + calcularPromedioIngles());
 
     }
 }
